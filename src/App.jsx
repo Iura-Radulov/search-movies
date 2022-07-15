@@ -1,15 +1,28 @@
-import MovieDetails from 'pages/MovieDetails/MovieDetails';
-import Movies from 'pages/Movies/Movies';
+import MovieDetails from 'pages/MovieDetails';
+import Movies from 'pages/Movies';
 import { Route, Routes } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import Home from './pages/Home/Home';
+import Home from './pages/Home';
+// import { fetchPopularMovies } from './sercices/moviesApi';
+import styled from 'styled-components';
+
+const Link = styled(NavLink)`
+  display: inline-block;
+  padding: 20px;
+  font-weight: 500;
+  color: #2a363b;
+  font-size: 22px;
+  &.active {
+    color: #2196f3;
+  }
+`;
 
 export const App = () => {
   return (
     <>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
+      <nav className="navigation">
+        <Link to="/">Home</Link>
+        <Link to="/movies">Movies</Link>
       </nav>
       <div>
         <Routes>
