@@ -11,6 +11,19 @@
 .button:hover {
   background-color: lightcoral;
 }
+.container {
+  position: relative;
+  padding-bottom: 20px;
+}
+.container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 100%;
+  height: 2px;
+  background-color: #635d5d;
+}
 @media screen and (min-width: 756px) {
   .container {
     display: flex;
@@ -54,4 +67,20 @@
 }
 .genresList li {
   margin-right: 10px;
+}
+
+.additional {
+  padding-left: 15px;
+}
+
+.additionalTitle {
+  margin-bottom: 20px;
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.additionalLink {
+  margin-bottom: 15px;
+  color: rgb(95, 95, 223);
 }

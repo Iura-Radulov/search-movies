@@ -1,5 +1,7 @@
+// import Cast from 'components/Cast';
+// import Reviews from 'components/Reviews';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, Outlet } from 'react-router-dom';
 import { fetchMovieDetails } from '../../sercices/moviesApi';
 import s from './MovieDetails.module.css';
 
@@ -10,7 +12,7 @@ export default function MovieDetails() {
     fetchMovieDetails(movieId).then(data => setMovie(data));
   }, [movieId]);
   //   fetchMovieDetails(movieId).then(data => console.log(data));
-  console.log(movie);
+  // console.log(movie);
   const {
     // vote_average,
     // vote_count,
@@ -47,6 +49,18 @@ export default function MovieDetails() {
               genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
           </ul>
         </div>
+      </div>
+      <div className={s.additional}>
+        <h3 className={s.additionalTitle}>Additional information</h3>
+        <ul>
+          <li className={s.additionalLink}>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li className={s.additionalLink}>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+        <Outlet />
       </div>
     </div>
   );

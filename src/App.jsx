@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 import Home from './pages/Home';
 // import { fetchPopularMovies } from './sercices/moviesApi';
 import styled from 'styled-components';
+import Cast from 'components/Cast';
+import Reviews from 'components/Reviews';
 
 const Link = styled(NavLink)`
   display: inline-block;
@@ -28,7 +30,10 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
           <Route path="*" element={<Home />} />
         </Routes>
       </div>

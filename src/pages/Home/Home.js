@@ -21,7 +21,19 @@ export default function Home() {
       <ul className={s.list}>
         {movies.map(movie => (
           <li className={s.item} key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`}>
+              <div className={s.container}>
+                <img
+                  className={s.image}
+                  src={
+                    movie.backdrop_path &&
+                    `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+                  }
+                  alt={movie.title}
+                />
+                <p className={s.imgTitle}>{movie.title}</p>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>
