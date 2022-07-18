@@ -1,36 +1,24 @@
-// import Cast from 'components/Cast';
-// import Reviews from 'components/Reviews';
-import { useEffect, useState } from 'react';
-import { Link, useParams, Outlet } from 'react-router-dom';
+import { useEffect, useState, Suspense } from 'react';
+import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from '../../sercices/moviesApi';
 import s from './MovieDetails.module.css';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/home';
+  
   useEffect(() => {
     fetchMovieDetails(movieId).then(data => setMovie(data));
   }, [movieId]);
-  //   fetchMovieDetails(movieId).then(data => console.log(data));
-  // console.log(movie);
-  const {
-    // vote_average,
-    // vote_count,
-    genres,
-    // original_title,
-    // poster_path,
-    backdrop_path,
-    // original_name,
-    // popularity,
-    overview,
-    title,
-    // id,
-  } = movie;
+  
+  const { genres, backdrop_path, overview, title } = movie;
   return (
     <div className={s.section}>
-      <button className={s.button} type="button">
+      <Link to={backLinkHref} className={s.button}>
         Go Back
-      </button>
+      </Link>
       <div className={s.container}>
         <img
           className={s.image}
@@ -52,7 +40,7 @@ export default function MovieDetails() {
       </div>
       <div className={s.additional}>
         <h3 className={s.additionalTitle}>Additional information</h3>
-        <ul>
+        <ul className={s.additionalList}>
           <li className={s.additionalLink}>
             <Link to="cast">Cast</Link>
           </li>
@@ -60,7 +48,9 @@ export default function MovieDetails() {
             <Link to="reviews">Reviews</Link>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet className={s.outlet} />
+        </Suspense>
       </div>
     </div>
   );

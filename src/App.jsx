@@ -1,12 +1,13 @@
-import MovieDetails from 'pages/MovieDetails';
-import Movies from 'pages/Movies';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import Home from './pages/Home';
-// import { fetchPopularMovies } from './sercices/moviesApi';
 import styled from 'styled-components';
-import Cast from 'components/Cast';
-import Reviews from 'components/Reviews';
+
+const Home = lazy(() => import("./pages/Home"));
+const Movies = lazy(() => import("./pages/Movies"));
+const MovieDetails = lazy(() => import("./pages/MovieDetails"));
+const Cast = lazy(() => import("./components/Cast"));
+const Reviews = lazy(() => import("./components/Reviews"));
 
 const Link = styled(NavLink)`
   display: inline-block;
@@ -27,6 +28,7 @@ export const App = () => {
         <Link to="/movies">Movies</Link>
       </nav>
       <div>
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
@@ -36,6 +38,7 @@ export const App = () => {
           </Route>
           <Route path="*" element={<Home />} />
         </Routes>
+        </Suspense>
       </div>
     </>
   );
