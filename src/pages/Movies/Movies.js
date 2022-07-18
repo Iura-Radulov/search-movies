@@ -8,7 +8,7 @@ export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   const location = useLocation();
-  
+
   useEffect(() => {
     if (query === '') {
       return;
@@ -22,7 +22,7 @@ export default function Movies() {
     setSearchParams({ query: form.element.query.value });
     form.reset();
   };
-  
+
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit}>
