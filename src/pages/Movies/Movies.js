@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import { fetchMovies } from '../../sercices/moviesApi';
 import s from './Movies.module.css';
+import { HOST_URL } from '../../App';
 
 export default function Movies() {
   const [movies, setMovies] = useState(null);
@@ -35,7 +36,10 @@ export default function Movies() {
         {movies &&
           movies.results.map(movie => (
             <li key={movie.id} className={s.list}>
-              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+              <Link
+                to={`${HOST_URL}movies/${movie.id}`}
+                state={{ from: location }}
+              >
                 {' '}
                 {movie.title}
               </Link>

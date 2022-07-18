@@ -2,17 +2,18 @@ import { useEffect, useState, Suspense } from 'react';
 import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from '../../sercices/moviesApi';
 import s from './MovieDetails.module.css';
+import { HOST_URL } from '../../App';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/home';
-  
+  const backLinkHref = location.state?.from ?? `${HOST_URL}/home`;
+
   useEffect(() => {
     fetchMovieDetails(movieId).then(data => setMovie(data));
   }, [movieId]);
-  
+
   const { genres, backdrop_path, overview, title } = movie;
   return (
     <div className={s.section}>
@@ -49,7 +50,7 @@ export default function MovieDetails() {
           </li>
         </ul>
         <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet className={s.outlet} />
+          <Outlet className={s.outlet} />
         </Suspense>
       </div>
     </div>
