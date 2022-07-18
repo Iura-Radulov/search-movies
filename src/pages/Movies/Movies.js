@@ -17,7 +17,7 @@ export default function Movies() {
   }, [query]);
 
   const handleSubmit = e => {
-    e.prevenDefault();
+    e.preventDefault();
     const form = e.currentTarget;
     setSearchParams({ query: form.element.query.value });
     form.reset();
