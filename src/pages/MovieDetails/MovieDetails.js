@@ -1,14 +1,13 @@
 import { useEffect, useState, Suspense } from 'react';
 import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
-import { fetchMovieDetails } from '../../sercices/moviesApi';
+import { fetchMovieDetails } from 'services/moviesApi';
 import s from './MovieDetails.module.css';
-import { HOST_URL } from '../../App';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? `${HOST_URL}/home`;
+  const backLinkHref = location.state?.from ?? '/home';
 
   useEffect(() => {
     fetchMovieDetails(movieId).then(data => setMovie(data));
@@ -24,7 +23,9 @@ export default function MovieDetails() {
         <img
           className={s.image}
           src={
-            backdrop_path && `https://image.tmdb.org/t/p/w500${backdrop_path}`
+            backdrop_path
+              ? `https://image.tmdb.org/t/p/w500${backdrop_path}`
+              : `https://thumbs.dreamstime.com/z/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg`
           }
           alt={title}
         />

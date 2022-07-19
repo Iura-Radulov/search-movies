@@ -20,24 +20,19 @@ const Link = styled(NavLink)`
   }
 `;
 
-export const HOST_URL = '/goit-react-hw-05-movies/';
-
 export const App = () => {
   return (
     <>
       <nav className="navigation">
-        <Link to={HOST_URL}>Home</Link>
-        <Link to={`${HOST_URL}movies`}>Movies</Link>
+        <Link to="/">Home</Link>
+        <Link to="/movies">Movies</Link>
       </nav>
       <div>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            <Route path={HOST_URL} element={<Home />} />
-            <Route path={`${HOST_URL}movies`} element={<Movies />} />
-            <Route
-              path={`${HOST_URL}movies/:movieId`}
-              element={<MovieDetails />}
-            >
+            <Route path="/" element={<Home />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/movies/:movieId" element={<MovieDetails />}>
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieReviews } from '../../sercices/moviesApi';
+import { fetchMovieReviews } from 'services/moviesApi';
 import s from './Reviews.module.css';
 
 export default function Reviews() {
