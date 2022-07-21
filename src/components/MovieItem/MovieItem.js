@@ -6,20 +6,22 @@ export default function MovieItem({ movie }) {
   const location = useLocation();
 
   return (
-    <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-      <div className={s.container}>
-        <img
-          className={s.image}
-          src={
-            movie.backdrop_path
-              ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
-              : `https://thumbs.dreamstime.com/z/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg`
-          }
-          alt={movie.title}
-        />
-        <p className={s.imgTitle}>{movie.title}</p>
-      </div>
-    </Link>
+    <li className={s.item}>
+      <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+        <div className={s.container}>
+          <img
+            className={s.image}
+            src={
+              movie.backdrop_path
+                ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+                : `https://thumbs.dreamstime.com/z/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg`
+            }
+            alt={movie.title}
+          />
+          <p className={s.imgTitle}>{movie.title}</p>
+        </div>
+      </Link>
+    </li>
   );
 }
 

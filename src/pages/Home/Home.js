@@ -15,9 +15,7 @@ export default function Home() {
       <h2 className={s.title}>Tranding today</h2>
       <ul className={s.list}>
         {movies.map(movie => (
-          <li className={s.item} key={movie.id}>
-            <MovieItem movie={movie} />
-          </li>
+          <MovieItem movie={movie} key={movie.id} />
         ))}
       </ul>
     </div>
