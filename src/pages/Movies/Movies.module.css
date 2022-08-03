@@ -1,3 +1,9 @@
+.container {
+  background-image: url('images/istockphoto.jpeg');
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+}
+
 .form {
   padding: 15px;
 }
@@ -23,5 +29,8 @@
 .list {
   margin-bottom: 15px;
   margin-left: 15px;
-  color: rgb(100, 112, 224);
+  color: rgb(13, 13, 16);
+}
+.list:hover {
+  color: blue;
 }

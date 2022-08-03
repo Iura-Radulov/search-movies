@@ -13,7 +13,7 @@ export default function MovieDetails() {
     fetchMovieDetails(movieId).then(data => setMovie(data));
   }, [movieId]);
 
-  const { genres, backdrop_path, overview, title } = movie;
+  const { genres, backdrop_path, overview, title, vote_average } = movie;
   return (
     <div className={s.section}>
       <Link to={backLinkHref} className={s.button}>
@@ -33,6 +33,8 @@ export default function MovieDetails() {
           <h2 className={s.title}>{title}</h2>
           <h3 className={s.overviewTitle}>Overview</h3>
           <p className={s.overview}>{overview}</p>
+          <h3 className={s.overviewTitle}>Vote average</h3>
+          <p className={s.overview}>{vote_average}</p>
           <h3 className={s.genresTitle}>Genres</h3>
           <ul className={s.genresList}>
             {genres &&
@@ -44,10 +46,14 @@ export default function MovieDetails() {
         <h3 className={s.additionalTitle}>Additional information</h3>
         <ul className={s.additionalList}>
           <li className={s.additionalLink}>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" className={s.linkLabel}>
+              Cast
+            </Link>
           </li>
           <li className={s.additionalLink}>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" className={s.linkLabel}>
+              Reviews
+            </Link>
           </li>
         </ul>
         <Suspense fallback={<div>Loading subpage...</div>}>

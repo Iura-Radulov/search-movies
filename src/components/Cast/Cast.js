@@ -11,7 +11,7 @@ export default function Cast() {
   }, [movieId]);
 
   return (
-    <ul>
+    <ul className={s.list}>
       {cast &&
         cast.map(item => (
           <li key={item.id}>
@@ -20,16 +20,18 @@ export default function Cast() {
               src={
                 item.profile_path
                   ? `https://image.tmdb.org/t/p/w500${item.profile_path}`
-                  : `https://thumbs.dreamstime.com/z/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg`
+                  : `https://www.rabrotech.com/upload/default/image-not-found.png`
               }
               alt="actor foto"
               loading="lazy"
             />
             <p className={s.name}>
-              Name: <span>{item.name}</span>
+              <span className={s.label}>Name: </span>
+              <span>{item.name}</span>
             </p>
             <p className={s.character}>
-              Character: <span>{item.character}</span>
+              <span className={s.label}>Character: </span>
+              <span>{item.character}</span>
             </p>
           </li>
         ))}

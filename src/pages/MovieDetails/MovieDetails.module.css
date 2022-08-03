@@ -1,5 +1,8 @@
 .section {
   padding-top: 15px;
+  background-image: url('images/istockphoto.jpeg');
+  background-size: cover;
+  /* background-repeat: no-repeat; */
 }
 .button {
   width: 100px;
@@ -104,4 +107,8 @@
   height: 2px;
   background-color: #7e7878;
   box-shadow: 4px 8px 10px 0 rgba(0, 0, 0, 0.35);
+}
+
+.linkLabel {
+  color: rgb(42, 42, 209);
 }

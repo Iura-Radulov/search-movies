@@ -1,6 +1,10 @@
 .home {
   padding-top: 20px;
   padding-left: 20px;
+  background-image: url('images/istockphoto.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 .title {
   font-size: 20px;

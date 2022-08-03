@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className={s.home}>
-      <h2 className={s.title}>Tranding today</h2>
+      <h2 className={s.title}>Trending today</h2>
       <ul className={s.list}>
         {movies.map(movie => (
           <MovieItem movie={movie} key={movie.id} />

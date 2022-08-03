@@ -84,6 +84,7 @@ h6 {
 .navigation {
   position: relative;
   padding-bottom: 20px;
+  background-color: rgb(228, 224, 88);
 }
 .navigation::after {
   content: '';

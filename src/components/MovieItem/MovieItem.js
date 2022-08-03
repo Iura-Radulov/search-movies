@@ -19,6 +19,7 @@ export default function MovieItem({ movie }) {
             alt={movie.title}
           />
           <p className={s.imgTitle}>{movie.title}</p>
+          <span>({movie.vote_average})</span>
         </div>
       </Link>
     </li>

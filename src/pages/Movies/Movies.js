@@ -24,7 +24,7 @@ export default function Movies() {
   };
 
   return (
-    <>
+    <div className={s.container}>
       <form className={s.form} onSubmit={handleSubmit}>
         <input type="text" name="query" className={s.input} />
         <button type="submit" className={s.button}>
@@ -45,6 +45,6 @@ export default function Movies() {
           <p>No results on your search</p>
         )}
       </ul>
-    </>
+    </div>
   );
 }
