@@ -1,8 +1,5 @@
 .section {
   padding-top: 15px;
-  background-image: url('images/istockphoto.jpeg');
-  background-size: cover;
-  /* background-repeat: no-repeat; */
 }
 .button {
   width: 100px;
@@ -48,9 +45,10 @@
 }
 
 .title {
-  font-size: 25px;
+  font-size: 28px;
   font-weight: 700;
   margin-bottom: 15px;
+  color: blue;
 }
 @media screen and (max-width: 755px) {
   .title {
@@ -61,6 +59,7 @@
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 10px;
+  color: rgb(206, 252, 252);
 }
 .overview {
   font-size: 18px;
@@ -70,6 +69,7 @@
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 10px;
+  color: rgb(206, 252, 252);
 }
 .genresList {
   display: flex;
@@ -89,6 +89,7 @@
   margin-top: 15px;
   font-size: 22px;
   font-weight: 500;
+  color: rgb(71, 76, 76);
 }
 .additionalList {
   padding-bottom: 20px;
